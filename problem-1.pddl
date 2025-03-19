@@ -1,18 +1,18 @@
 (define (problem problem_one) (:domain domain_one)
 (:objects
-    N1 - n
-    N2 - n
-    N3 - n
-    N4 - n
-    N5 - n
-    N6 - n
-    N7 - n
-    N8 - n
-    N9 - n
-    N10 - n
-    N11 - n
-    N12 - n
-    N13 - n
+    N1 - node
+    N2 - node
+    N3 - node
+    N4 - node
+    N5 - node
+    N6 - node
+    N7 - node
+    N8 - node
+    N9 - node
+    N10 - node
+    N11 - node
+    N12 - node
+    N13 - node
     Beer - food
     Pizza - food
     Sushi - food

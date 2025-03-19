@@ -7,18 +7,18 @@
 
 (:types ;todo: enumerate types and their hierarchy here, e.g. car truck bus - vehicle
     person courier food - placees
-    n - object
+    node - object
 )
 
 ; un-comment following line if constants are needed
 ;(:constants )
 
 (:predicates ;todo: define predicates here
-    (RoadNetwork ?x - n ?y - n)
-    (Location ?x - placees ?y - n)
+    (RoadNetwork ?x - node ?y - node)
+    (Location ?x - placees ?y - node)
     (DeliveryMade ?x - food ?z - person)
     (PickedUp ?x - food ?y - courier)
-    (Serves ?x - food ?y - n)
+    (Serves ?x - food ?y - node)
     (Ordered ?x - food ?y - person)
 )
 
@@ -29,19 +29,19 @@
 
 ;define actions here
 (:action MOVE-FROM-TO
-    :parameters (?x - courier ?y - n ?z - n)
+    :parameters (?x - courier ?y - node ?z - node)
     :precondition (and (Location ?x ?y) (RoadNetwork ?y ?z))
     :effect (and (Location ?x ?z) (not (Location ?x ?y)))
 )
 
 (:action PICK-UP
-    :parameters (?x - courier ?y - food ?z - n)
+    :parameters (?x - courier ?y - food ?z - node)
     :precondition (and (Location ?x ?z) (not (PickedUp ?y ?x)) (Serves ?y ?z))
     :effect (and (PickedUp ?y ?x))
 )
 
 (:action MAKE-DELIVERY
-    :parameters (?x - courier ?y - food ?z - n ?j - person)
+    :parameters (?x - courier ?y - food ?z - node ?j - person)
     :precondition (and (Location ?x ?z) (PickedUp ?y ?x) (Location ?j ?z) (Ordered ?y ?j) (not (DeliveryMade ?y ?j)))
     :effect (and (not (PickedUp ?y ?x)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)))
 )
