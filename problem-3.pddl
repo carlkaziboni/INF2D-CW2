@@ -1,4 +1,4 @@
-(define (problem problem_one) (:domain domain_one)
+(define (problem problem_three) (:domain domain_three)
 (:objects
     N1 - node
     N2 - node
@@ -73,6 +73,15 @@
     (Ordered Soda Woman)
     (Ordered Taco FishMan)
     (Location Scooter N9)
+    (assign (max_capacity Scooter) 10)
+    (assign (current_capacity) 0)
+    (assign (food_volume Beer) 2)
+    (assign (food_volume Sushi) 4)
+    (assign (food_volume Burrito) 6)
+    (assign (food_volume Pizza) 8)
+    (assign (food_volume Soda) 3)
+    (assign (food_volume Curry) 7)
+    (assign (food_volume Taco) 5)
 )
 
 (:goal (and

@@ -1,4 +1,4 @@
-(define (problem problem_one) (:domain domain_one)
+(define (problem problem_two) (:domain domain_two)
 (:objects
     N1 - node
     N2 - node
@@ -26,6 +26,7 @@
     Woman - person
     FishMan - person
     Scooter - courier
+    Motorbike - courier
 )
 
 (:init
@@ -66,13 +67,14 @@
     (Location FishMan N8)
     (Location Woman N13)
     (Ordered Beer Man)
-    (Ordered Curry OldMan)
     (Ordered Pizza Man)
     (Ordered Sushi OldLady)
+    (Ordered Curry OldMan)
     (Ordered Burrito Woman)
     (Ordered Soda Woman)
     (Ordered Taco FishMan)
     (Location Scooter N9)
+    (Location Motorbike N10)
 )
 
 (:goal (and
