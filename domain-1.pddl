@@ -36,14 +36,14 @@
 
 (:action PICK-UP
     :parameters (?x - courier ?y - food ?z - n)
-    :precondition (and (Location ?x ?z) (not (PickedUp ?x ?y)) (Serves ?y ?z))
-    :effect (and (PickedUp ?x ?y))
+    :precondition (and (Location ?x ?z) (not (PickedUp ?y ?x)) (Serves ?y ?z))
+    :effect (and (PickedUp ?y ?x))
 )
 
 (:action MAKE-DELIVERY
     :parameters (?x - courier ?y - food ?z - n ?j - person)
-    :precondition (and (Location ?x ?z) (PickedUp ?x ?y) (Location ?j ?z) (Ordered ?y ?j) (not (DeliveryMade ?y ?j)))
-    :effect (and (not (PickedUp ?x ?y)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)))
+    :precondition (and (Location ?x ?z) (PickedUp ?y ?x) (Location ?j ?z) (Ordered ?y ?j) (not (DeliveryMade ?y ?j)))
+    :effect (and (not (PickedUp ?y ?x)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)))
 )
 
 

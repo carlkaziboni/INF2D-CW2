@@ -60,7 +60,6 @@
     (Serves Burrito N6)
     (Serves Taco N6)
     (Serves Pizza N12)
-    (Location Courier N9)
     (Location OldMan N11)
     (Location Man N10)
     (Location OldLady N5)
