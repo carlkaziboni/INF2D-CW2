@@ -1,15 +1,60 @@
-(define (problem problem_name) (:domain domain_name)
-(:objects 
+;Header and description
+
+(define (domain domain_four)
+
+;remove requirements that are not needed
+(:requirements :adl :fluents)
+
+(:types ;todo: enumerate types and their hierarchy here, e.g. car truck bus - vehicle
+    person courier food fuel - placees
+    node - object
 )
 
-(:init
-    ;todo: put the initial state's facts and numeric values here
+; un-comment following line if constants are needed
+;(:constants )
+
+(:predicates ;todo: define predicates here
+    (RoadNetwork ?x - node ?y - node)
+    (Location ?x - placees ?y - node)
+    (DeliveryMade ?x - food ?z - person)
+    (PickedUp ?x - food ?y - courier)
+    (Serves ?x - food ?y - node)
+    (Ordered ?x - food ?y - person)
 )
 
-(:goal (and
-    ;todo: put the goal condition here
-))
 
-;un-comment the following line if metric is needed
-;(:metric minimize (???))
+(:functions ;todo: define numeric functions here
+    (distance ?x - node ?y - node)
+    (max_capacity ?x - courier)
+    (current_capacity ?x - courier)
+)
+
+;define actions here
+(:action MOVE-FROM-TO
+    :parameters (?x - courier ?y - node ?z - node)
+    :precondition (and (Location ?x ?y) (RoadNetwork ?y ?z) (>= (distance ?y ?z) (current_capacity ?x)))
+    :effect (and (Location ?x ?z) (not (Location ?x ?y)) (decrease (current_capacity ?x) (distance?y ?z)))
+)
+
+(:action PICK-UP
+    :parameters (?x - courier ?y - food ?z - node)
+    :precondition (and (Location ?x ?z) (not (PickedUp ?y ?x)) (Serves ?y ?z))
+    :effect (and (PickedUp ?y ?x))
+)
+
+(:action MAKE-DELIVERY
+    :parameters (?x - courier ?y - food ?z - node ?j - person)
+    :precondition (and (Location ?x ?z) (PickedUp ?y ?x) (Location ?j ?z) (Ordered ?y ?j) (not (DeliveryMade ?y ?j)))
+    :effect (and (not (PickedUp ?y ?x)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)))
+)
+
+(:action REFUEL
+    :parameters (?x - courier ?y - node ?z - fuel)
+    :precondition (and (Location ?x ?y) (Location ?z ?y))
+    :effect (and (assign (current_capacity ?x) (max_capacity ?x)))
+)
+
+
+
+
 )
