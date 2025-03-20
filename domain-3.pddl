@@ -26,7 +26,7 @@
 (:functions ;todo: define numeric functions here
     (current_capacity ?x - courier)
     (max_capacity ?x - courier)
-    (food_volume ?x - food)
+    (food_volume ?y - food)
 )
 
 ;define actions here
@@ -38,14 +38,14 @@
 
 (:action PICK-UP
     :parameters (?x - courier ?y - food ?z - node)
-    :precondition (and (Location ?x ?z) (not (PickedUp ?y ?x)) (Serves ?y ?z))
-    :effect (and (PickedUp ?y ?x))
+    :precondition (and (Location ?x ?z) (not (PickedUp ?y ?x)) (Serves ?y ?z) (>= (max_capacity ?x) (+ (food_volume ?y) (current_capacity ?x))))
+    :effect (and (PickedUp ?y ?x) (increase (current_capacity ?x) (food_volume ?y)))
 )
 
 (:action MAKE-DELIVERY
     :parameters (?x - courier ?y - food ?z - node ?j - person)
-    :precondition (and (Location ?x ?z) (PickedUp ?y ?x) (Location ?j ?z) (Ordered ?y ?j) (not (DeliveryMade ?y ?j)) (not (= (max_capacity ?x) (+ (food_volume ?y) (current_capacity ?x)))))
-    :effect (and (not (PickedUp ?y ?x)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)) (increase (current_capacity ?x) (food_volume ?y)))
+    :precondition (and (Location ?x ?z) (PickedUp ?y ?x) (Location ?j ?z) (Ordered ?y ?j) (not (DeliveryMade ?y ?j)))
+    :effect (and (not (PickedUp ?y ?x)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)) (decrease (current_capacity ?x) (food_volume ?y)))
 )
 
 
