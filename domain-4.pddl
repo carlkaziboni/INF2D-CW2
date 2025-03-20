@@ -32,7 +32,7 @@
 ;define actions here
 (:action MOVE-FROM-TO
     :parameters (?x - courier ?y - node ?z - node)
-    :precondition (and (Location ?x ?y) (RoadNetwork ?y ?z) (>= (distance ?y ?z) (current_capacity ?x)))
+    :precondition (and (Location ?x ?y) (RoadNetwork ?y ?z) (<= (distance ?y ?z) (current_capacity ?x)))
     :effect (and (Location ?x ?z) (not (Location ?x ?y)) (decrease (current_capacity ?x) (distance?y ?z)))
 )
 
