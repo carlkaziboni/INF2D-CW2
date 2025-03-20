@@ -26,6 +26,7 @@
     Woman - person
     FishMan - person
     Scooter - courier
+    FuelStation - fuel
 )
 
 (:init
@@ -73,6 +74,7 @@
     (Ordered Soda Woman)
     (Ordered Taco FishMan)
     (Location Scooter N9)
+    (Location FuelStation N4)
     (= (max_capacity Scooter) 40)
     (= (current_capacity Scooter) 20)
     (= (distance N1 N2) 2)
