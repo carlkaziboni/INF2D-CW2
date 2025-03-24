@@ -105,6 +105,7 @@
     (= (time Man) 130)
     (= (time Woman) 100)
     (= (time FishMan) 150)
+    (= (money Scooter) 10)
 )
 
 (:goal (and
@@ -118,6 +119,4 @@
     (DeliveryMade Curry OldMan)
 ))
 
-;un-comment the following line if metric is needed
-;(:metric  maximize (+ (time OldMan) (time OldLady) (time Man) (time Woman) (time FishMan)))
 )

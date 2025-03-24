@@ -20,6 +20,7 @@
     (PickedUp ?x - food ?y - courier)
     (Serves ?x - food ?y - node)
     (Ordered ?x - food ?y - person)
+    (AllOrdersCompleted ?j - person)
 )
 
 
@@ -28,6 +29,7 @@
     (max_capacity ?x - courier)
     (current_capacity ?x - courier)
     (time ?j - person)
+    (money ?x - Scooter)
 )
 
 ;define actions here
@@ -52,7 +54,20 @@
 (:action REFUEL
     :parameters (?x - courier ?y - node ?z - fuel)
     :precondition (and (Location ?x ?y) (Location ?z ?y))
-    :effect (and (assign (current_capacity ?x) (max_capacity ?x)))
+    :effect (and (assign (current_capacity ?x) (max_capacity ?x)) (decrease (money ?x) 5))
+)
+
+(:action CHECK-ALL-ORDERS-COMPLETED
+    :parameters (?j - person)
+    :precondition (forall (?y - food) (or (not (Ordered ?y ?j)) (DeliveryMade ?y ?j)))
+    :effect (AllOrdersCompleted ?j)
+)
+
+(:action COMPLETE-ORDER
+    :parameters (?x - courier ?j - person)
+    :precondition (and 
+        (AllOrdersCompleted ?j) (Location ?x ?z))
+    :effect (and (increase (money ?x) (/ (time ?j) 10)) (not (AllOrdersCompleted ?j)) )
 )
 
 
