@@ -3,7 +3,7 @@
 (define (domain domain_five)
 
 ;remove requirements that are not needed
-(:requirements :strips :fluents :durative-actions :timed-initial-literals :typing :conditional-effects :negative-preconditions :duration-inequalities :equality)
+(:requirements :strips :fluents :timed-initial-literals :typing :conditional-effects :negative-preconditions :duration-inequalities :equality)
 
 (:types ;todo: enumerate types and their hierarchy here, e.g. car truck bus - vehicle
     person courier food fuel - placees
