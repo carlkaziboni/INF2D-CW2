@@ -59,13 +59,13 @@
 
 (:action CHECK-ALL-ORDERS-COMPLETED
     :parameters (?j - person)
-    :precondition (forall (?y - food) (or (not (Ordered ?y ?j)) (DeliveryMade ?y ?j)))
+    :precondition (not (exists (?y - food) (Ordered ?y ?j))) ; Check there are no pending orders
     :effect (AllOrdersCompleted ?j)
 )
 
 (:action COMPLETE-ORDER
-    :parameters (?x - courier ?j - person ?z - node)
-    :precondition (and (AllOrdersCompleted ?j) (Location ?x ?z))
+    :parameters (?x - courier ?j - person)
+    :precondition (and (AllOrdersCompleted ?j))
     :effect (and (increase (money ?x) (/ (time ?j) 1)) (not (AllOrdersCompleted ?j)) )
 )
 
