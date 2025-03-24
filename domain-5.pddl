@@ -29,7 +29,7 @@
     (max_capacity ?x - courier)
     (current_capacity ?x - courier)
     (time ?j - person)
-    (money ?x - Scooter)
+    (money ?x - courier)
 )
 
 ;define actions here
