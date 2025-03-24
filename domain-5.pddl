@@ -47,7 +47,7 @@
 (:action MAKE-DELIVERY
     :parameters (?x - courier ?y - food ?z - node ?j - person)
     :precondition (and (Location ?x ?z) (PickedUp ?y ?x) (Location ?j ?z) (Ordered ?y ?j) (not (DeliveryMade ?y ?j)) (<= (time ?j) 100))
-    :effect (and (not (PickedUp ?y ?x)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)) (increase (money ?x) (/ (time ?j) 20)))
+    :effect (and (not (PickedUp ?y ?x)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)) (increase (money ?x) (/ (time ?j) 30)))
 )
 
 (:action REFUEL
