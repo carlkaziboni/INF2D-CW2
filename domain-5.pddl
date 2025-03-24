@@ -38,8 +38,8 @@
 )
 
 (:action PICK-UP
-    :parameters (?x - courier ?y - food ?z - node)
-    :precondition (and (Location ?x ?z) (not (PickedUp ?y ?x)) (Serves ?y ?z))
+    :parameters (?x - courier ?y - food ?z - node ?j - person)
+    :precondition (and (Location ?x ?z) (not (PickedUp ?y ?x)) (Serves ?y ?z) (Ordered ?y ?j) (<= (tip ?j) 100))
     :effect (and (PickedUp ?y ?x))
 )
 
