@@ -125,4 +125,5 @@
     (DeliveryMade Curry OldMan)
 ))
 
+(:metric maximize (money Scooter))
 )
