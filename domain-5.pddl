@@ -53,7 +53,7 @@
 (:action REFUEL
     :parameters (?x - courier ?y - node ?z - fuel)
     :precondition (and (Location ?x ?y) (Location ?z ?y) (>= (money ?x) 5))
-    :effect (and (assign (current_capacity ?x) (max_capacity ?x)) (decrease (money ?x) 3))
+    :effect (and (assign (current_capacity ?x) (max_capacity ?x)) (decrease (money ?x) 5))
 )
 
 
