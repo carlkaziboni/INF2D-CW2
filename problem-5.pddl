@@ -119,5 +119,5 @@
 ))
 
 ;un-comment the following line if metric is needed
-(:metric  maximize (sum (forall (?j - person) (tip ?j - person))))
+(:metric  maximize (+ (tip OldMan) (tip OldLady) (tip Man) (tip Woman) (tip FishMan)))
 )
