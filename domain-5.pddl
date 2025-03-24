@@ -27,25 +27,25 @@
     (distance ?x - node ?y - node)
     (max_capacity ?x - courier)
     (current_capacity ?x - courier)
-    (tip ?j - person)
+    (time ?j - person)
 )
 
 ;define actions here
 (:action MOVE-FROM-TO
     :parameters (?x - courier ?y - node ?z - node)
     :precondition (and (Location ?x ?y) (RoadNetwork ?y ?z) (<= (distance ?y ?z) (current_capacity ?x)))
-    :effect (and (Location ?x ?z) (not (Location ?x ?y)) (decrease (current_capacity ?x) (distance?y ?z)) (forall (?j - person) (when (> (tip ?j) 0) (decrease (tip ?j) (distance ?y ?z)))))
+    :effect (and (Location ?x ?z) (not (Location ?x ?y)) (decrease (current_capacity ?x) (distance?y ?z)) (forall (?j - person) (when (> (time ?j) 0) (decrease (time ?j) (distance ?y ?z)))))
 )
 
 (:action PICK-UP
     :parameters (?x - courier ?y - food ?z - node ?j - person)
-    :precondition (and (Location ?x ?z) (not (PickedUp ?y ?x)) (Serves ?y ?z) (Ordered ?y ?j) (<= (tip ?j) 100))
+    :precondition (and (Location ?x ?z) (not (PickedUp ?y ?x)) (Serves ?y ?z) (Ordered ?y ?j) (<= (time ?j) 100))
     :effect (and (PickedUp ?y ?x))
 )
 
 (:action MAKE-DELIVERY
     :parameters (?x - courier ?y - food ?z - node ?j - person)
-    :precondition (and (Location ?x ?z) (PickedUp ?y ?x) (Location ?j ?z) (Ordered ?y ?j) (not (DeliveryMade ?y ?j)) (<= (tip ?j) 100))
+    :precondition (and (Location ?x ?z) (PickedUp ?y ?x) (Location ?j ?z) (Ordered ?y ?j) (not (DeliveryMade ?y ?j)) (<= (time ?j) 100))
     :effect (and (not (PickedUp ?y ?x)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)))
 )
 

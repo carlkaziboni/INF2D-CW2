@@ -100,11 +100,11 @@
     (= (distance N12 N11) 4)
     (= (distance N12 N13) 5)
     (= (distance N13 N12) 5)
-    (= (tip OldMan) 100)
-    (= (tip OldLady) 120)
-    (= (tip Man) 130)
-    (= (tip Woman) 100)
-    (= (tip FishMan) 150)
+    (= (time OldMan) 100)
+    (= (time OldLady) 120)
+    (= (time Man) 130)
+    (= (time Woman) 100)
+    (= (time FishMan) 150)
 )
 
 (:goal (and
@@ -119,5 +119,5 @@
 ))
 
 ;un-comment the following line if metric is needed
-;(:metric  maximize (+ (tip OldMan) (tip OldLady) (tip Man) (tip Woman) (tip FishMan)))
+;(:metric  maximize (+ (time OldMan) (time OldLady) (time Man) (time Woman) (time FishMan)))
 )
