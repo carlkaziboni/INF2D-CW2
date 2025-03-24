@@ -80,7 +80,7 @@
     (Location Scooter N9)
     (Location FuelStation N4)
     (= (max_capacity Scooter) 40)
-    (= (current_capacity Scooter) 40)
+    (= (current_capacity Scooter) 20)
     (= (distance N1 N2) 2)
     (= (distance N1 N6) 3)
     (= (distance N1 N9) 4)
