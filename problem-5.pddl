@@ -25,6 +25,8 @@
     Man - person
     Woman - person
     FishMan - person
+    NewMan - person
+    NewWoman - person
     Scooter - courier
     FuelStation - fuel
 )
@@ -66,12 +68,14 @@
     (Location OldLady N5)
     (Location FishMan N8)
     (Location Woman N13)
-    (Ordered Beer Man)
+    (Location NewMan N1)
+    (Location NewWoman N7)
+    (Ordered Beer NewMan)
     (Ordered Curry OldMan)
     (Ordered Pizza Man)
     (Ordered Sushi OldLady)
     (Ordered Burrito Woman)
-    (Ordered Soda Woman)
+    (Ordered Soda NewWoman)
     (Ordered Taco FishMan)
     (Location Scooter N9)
     (Location FuelStation N4)
@@ -105,16 +109,18 @@
     (= (time Man) 130)
     (= (time Woman) 100)
     (= (time FishMan) 150)
+    (= (time NewMan) 110)
+    (= (time NewWoman) 180)
     (= (money Scooter) 15)
 )
 
 (:goal (and
     ;todo: put the goal condition here
-    (DeliveryMade Beer Man)
+    (DeliveryMade Beer NewMan)
     (DeliveryMade Pizza Man)
     (DeliveryMade Sushi OldLady)
     (DeliveryMade Burrito Woman)
-    (DeliveryMade Soda Woman)
+    (DeliveryMade Soda NewWoman)
     (DeliveryMade Taco FishMan)
     (DeliveryMade Curry OldMan)
 ))

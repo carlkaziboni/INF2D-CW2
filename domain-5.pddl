@@ -20,7 +20,6 @@
     (PickedUp ?x - food ?y - courier)
     (Serves ?x - food ?y - node)
     (Ordered ?x - food ?y - person)
-    (AllOrdersCompleted ?j - person)
 )
 
 
@@ -48,7 +47,7 @@
 (:action MAKE-DELIVERY
     :parameters (?x - courier ?y - food ?z - node ?j - person)
     :precondition (and (Location ?x ?z) (PickedUp ?y ?x) (Location ?j ?z) (Ordered ?y ?j) (not (DeliveryMade ?y ?j)) (<= (time ?j) 100))
-    :effect (and (not (PickedUp ?y ?x)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)))
+    :effect (and (not (PickedUp ?y ?x)) (DeliveryMade ?y ?j) (not (Ordered ?y ?j)) (increase (money ?x) (/ (time ?j) 10)))
 )
 
 (:action REFUEL
@@ -56,19 +55,6 @@
     :precondition (and (Location ?x ?y) (Location ?z ?y) (>= (money ?x) 5))
     :effect (and (assign (current_capacity ?x) (max_capacity ?x)) (decrease (money ?x) 3))
 )
-
-(:action CHECK-ALL-ORDERS-COMPLETED
-    :parameters (?j - person)
-    :precondition (not (exists (?y - food) (Ordered ?y ?j))) ; Check there are no pending orders
-    :effect (AllOrdersCompleted ?j)
-)
-
-(:action COMPLETE-ORDER
-    :parameters (?x - courier ?j - person)
-    :precondition (and (AllOrdersCompleted ?j))
-    :effect (and (increase (money ?x) (/ (time ?j) 1)) (not (AllOrdersCompleted ?j)) )
-)
-
 
 
 
