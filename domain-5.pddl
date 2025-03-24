@@ -27,7 +27,7 @@
     (distance ?x - node ?y - node)
     (max_capacity ?x - courier)
     (current_capacity ?x - courier)
-    (tips ?x - person)
+    (tip ?j - person)
 )
 
 ;define actions here
