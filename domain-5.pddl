@@ -64,9 +64,8 @@
 )
 
 (:action COMPLETE-ORDER
-    :parameters (?x - courier ?j - person)
-    :precondition (and 
-        (AllOrdersCompleted ?j) (Location ?x ?z))
+    :parameters (?x - courier ?j - person ?z - node)
+    :precondition (and (AllOrdersCompleted ?j) (Location ?x ?z))
     :effect (and (increase (money ?x) (/ (time ?j) 10)) (not (AllOrdersCompleted ?j)) )
 )
 
