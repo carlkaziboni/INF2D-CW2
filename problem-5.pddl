@@ -105,7 +105,7 @@
     (= (time Man) 130)
     (= (time Woman) 100)
     (= (time FishMan) 150)
-    (= (money Scooter) 0)
+    (= (money Scooter) 5)
 )
 
 (:goal (and
