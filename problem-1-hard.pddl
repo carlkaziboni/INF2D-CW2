@@ -23,7 +23,7 @@
         (RoadNetwork N29 N30) (RoadNetwork N30 N31) (RoadNetwork N31 N32) (RoadNetwork N32 N33)
         (RoadNetwork N33 N34) (RoadNetwork N34 N35) (RoadNetwork N35 N36) (RoadNetwork N36 N37)
         (RoadNetwork N37 N38) (RoadNetwork N38 N39) (RoadNetwork N39 N40) (RoadNetwork N40 N1)
-        (RoadNetwork N10 N30) (RoadNetwork N5 N25) (RoadNetwork N15 N35)
+        (RoadNetwork N5 N25) (RoadNetwork N15 N35)
         
         ; Locations of people
         (Location OldMan N5) (Location Woman N10) (Location Chef N15) (Location Worker N20)
