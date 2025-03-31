@@ -8,7 +8,7 @@
         Cheeseburger Nachos Milkshake - food
         OldMan OldLady Man Woman FishMan Student Chef Gamer Tourist Worker
         GrandFather Child Teenager Doctor Nurse Driver - person
-        Scooter Bike Truck Helicopter - courier
+        Scooter - courier
     )
     
     (:init
@@ -41,20 +41,20 @@
         (Ordered Donut Worker) (Ordered Cheeseburger Gamer)
         (Ordered Nachos Tourist) (Ordered Milkshake Driver)
         
-        (Location Scooter N1) (Location Bike N10) (Location Truck N20) (Location Helicopter N30)
+        (Location Scooter N1)
     )
     
     (:goal
         (and
-            (DeliveryMade Beer Woman)
-            (DeliveryMade Pizza Man)
+            ;(DeliveryMade Beer Woman)
+            ;(DeliveryMade Pizza Man)
             ;(DeliveryMade Sushi OldLady)
             ;(DeliveryMade Burger Student)
             ;(DeliveryMade Fries Chef)
             ;(DeliveryMade Donut Worker)
             ;(DeliveryMade Cheeseburger Gamer)
             (DeliveryMade Milkshake Driver)
-            ;(DeliveryMade Nachos Tourist)
+            (DeliveryMade Nachos Tourist)
             (DeliveryMade Curry FishMan)
         )
     )
