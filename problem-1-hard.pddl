@@ -1,4 +1,4 @@
-(define (problem problem-1-very-hard-fixed)
+(define (problem problem-1-hard)
     (:domain domain_one)
     (:objects
         N1 N2 N3 N4 N5 N6 N7 N8 N9 N10 N11 N12 N13 N14 N15 N16 N17 N18 N19 N20
@@ -54,7 +54,7 @@
             ;(DeliveryMade Donut Worker)
             ;(DeliveryMade Cheeseburger Gamer)
             ;(DeliveryMade Milkshake Driver)
-            ;(DeliveryMade Nachos Tourist)
+            (DeliveryMade Nachos Tourist)
             (DeliveryMade Curry FishMan)
         )
     )
