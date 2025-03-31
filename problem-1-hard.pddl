@@ -55,7 +55,7 @@
             ;(DeliveryMade Cheeseburger Gamer)
             ;(DeliveryMade Milkshake Driver)
             ;(DeliveryMade Nachos Tourist)
-            ;(DeliveryMade Curry FishMan)
+            (DeliveryMade Curry FishMan)
         )
     )
 )
