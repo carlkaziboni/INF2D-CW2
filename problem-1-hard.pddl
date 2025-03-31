@@ -50,7 +50,7 @@
             (DeliveryMade Pizza Man)
             (DeliveryMade Sushi OldLady)
             (DeliveryMade Burger Student)
-            (DeliveryMade Fries Chef)
+            ;(DeliveryMade Fries Chef)
             ;(DeliveryMade Donut Worker)
             ;(DeliveryMade Cheeseburger Gamer)
             ;(DeliveryMade Milkshake Driver)
