@@ -48,7 +48,7 @@
         (and
             (DeliveryMade Beer Woman)
             (DeliveryMade Pizza Man)
-            (DeliveryMade Sushi OldLady)
+            ;(DeliveryMade Sushi OldLady)
             ;(DeliveryMade Burger Student)
             ;(DeliveryMade Fries Chef)
             ;(DeliveryMade Donut Worker)
