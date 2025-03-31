@@ -49,7 +49,7 @@
             (DeliveryMade Beer Woman)
             (DeliveryMade Pizza Man)
             (DeliveryMade Sushi OldLady)
-            (DeliveryMade Burger Student)
+            ;(DeliveryMade Burger Student)
             ;(DeliveryMade Fries Chef)
             ;(DeliveryMade Donut Worker)
             ;(DeliveryMade Cheeseburger Gamer)
